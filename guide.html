@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="دليل إعداد قالب ويف في سلة. Wave theme setup guide for Salla merchants, in Arabic and English.">
+  <meta name="color-scheme" content="light">
+  <title>دليل إعداد ويف | Wave setup guide</title>
+  <style>
+    :root { color-scheme:light; --paper:#f7f6f1; --ink:#202b25; --muted:#526057; --link:#255641; --line:#d6dcd4; }
+    * { box-sizing:border-box; }
+    html { scroll-padding-block-start:1.5rem; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Tahoma,"Segoe UI",Arial,sans-serif; font-size:1rem; line-height:1.9; }
+    ::selection { background:#d9e7dc; color:var(--ink); }
+    a { color:var(--link); text-decoration-thickness:.08em; text-underline-offset:.2em; }
+    a:hover { text-decoration-thickness:.14em; }
+    a:focus-visible { outline:3px solid var(--link); outline-offset:5px; border-radius:2px; }
+    .skip { position:absolute; inset-block-start:.5rem; inset-inline-start:.5rem; background:var(--paper); padding:.6rem 1rem; transform:translateY(-200%); }
+    .skip:focus { transform:none; }
+    .page { width:min(74ch,calc(100% - 2.5rem)); margin-inline:auto; }
+    header { padding-block:3rem 1.5rem; border-block-end:1px solid var(--line); }
+    h1 { margin:0; font-size:clamp(2rem,5vw,2.8rem); line-height:1.35; font-weight:700; }
+    .english-title { display:block; margin-block-start:.5rem; font-size:1.5rem; font-weight:600; }
+    .intro { margin-block:1.25rem 0; color:var(--muted); }
+    .languages { display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; margin-block-start:1.25rem; }
+    .languages a { display:inline-flex; align-items:center; min-height:44px; padding-block:.3rem; }
+    article { padding-block:2.5rem 3rem; }
+    article + article { border-block-start:1px solid var(--line); }
+    article[lang="en"] { font-family:"Segoe UI",Arial,sans-serif; line-height:1.7; }
+    h2 { font-size:1.7rem; line-height:1.4; margin-block:0 1rem; }
+    h3 { font-size:1.3rem; line-height:1.5; margin-block:2.5rem .75rem; }
+    h4 { font-size:1.08rem; margin-block:1.75rem .5rem; }
+    p { margin-block:.75rem; }
+    ul,ol { margin-block:.75rem; padding-inline-start:1.5rem; }
+    li { margin-block:.4rem; }
+    .contents { margin-block:1.5rem 2rem; padding-block:1rem; border-block:1px solid var(--line); }
+    .contents p { margin-block:0 .5rem; font-weight:700; }
+    .contents ul { margin-block:0; }
+    table { width:100%; border-collapse:collapse; margin-block:1.25rem; font-size:.95rem; }
+    caption { text-align:start; font-weight:700; margin-block-end:.5rem; }
+    th,td { text-align:start; vertical-align:top; padding:.75rem .5rem; border-block-end:1px solid var(--line); overflow-wrap:anywhere; }
+    th { font-weight:700; }
+    th:first-child { width:34%; }
+    code { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:.9em; direction:ltr; unicode-bidi:isolate; overflow-wrap:anywhere; }
+    strong { font-weight:700; }
+    footer { padding-block:1.5rem 2.5rem; border-block-start:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+    footer p { margin-block:.25rem; }
+    @media (max-width:480px) { .page { width:calc(100% - 2rem); } header { padding-block-start:2rem; } h2 { font-size:1.625rem; } th,td { padding-inline:.25rem; } th:first-child { width:38%; } }
+    @media print { body { background:#fff; } .page { width:100%; max-width:none; } .skip,.languages,.contents { display:none; } article { padding-block:1rem; } h3 { break-after:avoid; } a { color:inherit; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">تجاوز إلى الدليل <span lang="en" dir="ltr">/ Skip to guide</span></a>
+  <div class="page">
+    <header>
+      <h1>دليل إعداد ويف <span class="english-title" lang="en" dir="ltr">Wave setup guide</span></h1>
+      <p class="intro">إعداد القالب من خيارات التصميم ومحرر الصفحات في سلة.</p>
+      <p class="intro" lang="en" dir="ltr">Configure your theme through Salla's Design Options and native page editor.</p>
+      <nav class="languages" aria-label="لغة الدليل / Guide language">
+        <a href="#arabic" lang="ar">العربية</a>
+        <a href="#english" lang="en" dir="ltr">English</a>
+      </nav>
+    </header>
+    <main id="content" tabindex="-1">
+      <article id="arabic" lang="ar" dir="rtl" aria-labelledby="ar-title">
+        <h2 id="ar-title">إعداد المتجر</h2>
+        <p>يشرح هذا الدليل إعداد نسخة ويف التطويرية <bdi>0.2.0</bdi>. اعتماد القالب ونشره في متجر قوالب سلة إجراء منفصل عن تخصيصه أو معاينته.</p>
+        <nav class="contents" aria-label="محتويات الدليل العربي">
+          <p>في هذا الدليل</p>
+          <ul>
+            <li><a href="#ar-start">فتح القالب وهوية المتجر</a></li>
+            <li><a href="#ar-design">خيارات التصميم</a></li>
+            <li><a href="#ar-links">القوائم والروابط</a></li>
+            <li><a href="#ar-home">أقسام الصفحة الرئيسية</a></li>
+            <li><a href="#ar-product">صفحات المنتجات</a></li>
+            <li><a href="#ar-empty">الحقول الفارغة وحفظ التعديلات</a></li>
+            <li><a href="#ar-review">المراجعة قبل التفعيل</a></li>
+          </ul>
+        </nav>
+
+        <section id="ar-start" aria-labelledby="ar-start-title">
+          <h3 id="ar-start-title">افتح القالب واضبط هوية متجرك</h3>
+          <ol>
+            <li>من منطقة القوالب في متجرك، افتح مسودة ويف المقصودة واختر <strong>تخصيص</strong>. تأكد من اسم المتجر والقالب قبل الحفظ.</li>
+            <li>اضبط اسم المتجر والشعار والأيقونة واللغات والخط وبيانات التواصل والحسابات الاجتماعية وطرق الدفع من إعدادات سلة. قد تؤثر هذه الإعدادات في قوالب أخرى للمتجر أيضًا.</li>
+            <li>من <strong>خيارات التصميم</strong>، اختر عرض شعار المتجر أو اسم نصي، ثم عدّل النصوص والألوان والخطوط والأزرار لتناسب علامتك.</li>
+            <li>افتح المعاينة من المحرر الحالي، وراجع الكمبيوتر والجوال. عند دعم أكثر من لغة، احفظ نصوص كل لغة وراجع عرضها.</li>
+          </ol>
+          <p>صور الأقسام الافتراضية أصلية لويف، أُنشئت باستخدام توليد الصور بالذكاء الاصطناعي وتُستضاف على الإنترنت. استُبدلت بها الصور والفيديو المرجعية السابقة، وأُزيلت شعارات الجوائز والجهات من المحتوى الافتراضي. يمكنك استبدال كل صورة من إعدادات قسمها بصورك أو بوسائط لديك إذن بنشرها.</p>
+          <p>اكتب معلومات منتجاتك الفعلية. أضف آراء العملاء أو شعارات الجهات فقط عندما تكون حقيقية ومصرحًا باستخدامها.</p>
+        </section>
+
+        <section id="ar-design" aria-labelledby="ar-design-title">
+          <h3 id="ar-design-title">خيارات التصميم</h3>
+          <p>تتحكم خيارات التصميم في المظهر المشترك للمتجر. للأقسام الرئيسية إعدادات مستقلة داخل محرر الصفحات.</p>
+          <table>
+            <caption>أين تجد الإعداد المناسب</caption>
+            <thead><tr><th scope="col">المجموعة</th><th scope="col">ما يمكنك تعديله</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">إعدادات المتجر</th><td>الألوان، عرض المحتوى، الهوامش، المسافات، الخطوط، الأزرار، الحركة، ووجهة التسوق الافتراضية.</td></tr>
+              <tr><th scope="row">إعدادات أعلى المتجر</th><td>الشعار أو الاسم النصي، الإعلان، حجم الترويسة وألوانها، تثبيتها، مصدر القائمة، وروابطها وعناصر البحث والحساب واللغة.</td></tr>
+              <tr><th scope="row">إعدادات أسفل المتجر</th><td>الألوان والأعمدة، مجموعات الروابط، روابط الدعم والسياسات، الاشتراك، التواصل، وعلامات الدفع المتاحة من سلة.</td></tr>
+              <tr><th scope="row">إعدادات بطاقة المنتج</th><td>المسافات، الحدود والظل، الإضافة السريعة، وتنبيهات توفر المخزون.</td></tr>
+              <tr><th scope="row">إعدادات صفحة المنتج</th><td>معرض الصور، الملاءمة والنسب، الصور المصغرة، النصوص، مظهر خيارات المنتج، ملخصه، شريط الشراء، السياسات، والمحتوى الممتد.</td></tr>
+              <tr><th scope="row">إعدادات صفحة التصنيف</th><td>عرض مسار التصفح. توفر سلة المنتجات وخيارات الفرز والتصفية المتاحة.</td></tr>
+              <tr><th scope="row">إعدادات الصفحة الرئيسية</th><td>الخيارات المشتركة للأقسام الرئيسية المرتبطة بها.</td></tr>
+            </tbody>
+          </table>
+          <p>احفظ التغييرات، ثم انتظر تحميل عناصر سلة في المعاينة قبل الحكم على النتيجة.</p>
+        </section>
+
+        <section id="ar-links" aria-labelledby="ar-links-title">
+          <h3 id="ar-links-title">القوائم والروابط</h3>
+          <p>اختر مصدر قائمة الترويسة. تستخدم <strong>قائمة المتجر</strong> بيانات قوائم سلة، بينما تستخدم <strong>روابط محرر القالب</strong> مجموعات الروابط القابلة للتعديل في القالب. عدّل النص والوجهة، واحذف أو عطّل المجموعات التي لا تحتاج إليها.</p>
+          <p>تختار حقول المنتج والتصنيف والصفحة من متجرك الحالي. عند وجود حقل وجهة وحقل رابط بديل معًا، تتقدم الوجهة المختارة على الرابط البديل. اضبط وجهة التسوق الافتراضية عند استخدامها كوجهة احتياطية.</p>
+          <p>تُفتح روابط الأقسام على الصفحة الرئيسية لمتجرك. تشمل الاختصارات الافتراضية <code>#collection</code> و<code>#moments</code> و<code>#why-wave</code> و<code>#responsibility</code> و<code>#community</code>. عدّل الرابط أو احذفه إذا أزلت القسم الذي يشير إليه.</p>
+          <p>اضبط مجموعات التسوق وخدمة العملاء والمعلومات في التذييل، واربط سياسات الشحن والاسترجاع بصفحات منشورة فعلًا. بيانات التواصل والحسابات الاجتماعية والضرائب وعلامات الدفع تأتي من سلة؛ تفعيل عرضها في القالب لا يُنشئ هذه الخدمات.</p>
+          <p>يتطلب الاشتراك في النشرة رابطًا فعليًا لنموذج اشتراك مستضاف. يتولى مزود النموذج استقبال البيانات والتحقق منها. تحتاج روابط الإحالة والتطبيقات إلى وجهات فعلية أيضًا.</p>
+        </section>
+
+        <section id="ar-home" aria-labelledby="ar-home-title">
+          <h3 id="ar-home-title">أنشئ صفحتك الرئيسية</h3>
+          <p>استخدم محرر الصفحات لإضافة الأقسام أو إخفائها أو حذفها أو تغيير ترتيبها. عدّل نصوص كل قسم وصوره وروابطه وتخطيطه من لوحة إعداداته. يبقى مظهر ويف متاحًا مع هذه الأقسام القابلة للتعديل.</p>
+          <p>تتوفر شرائح المقدمة، المنتجات المختارة، اللحظات، المزايا والمزايا التفاعلية، شبكات الصور، التقييمات الأصلية، البانرات، القصص، صور المجتمع، الصور الشخصية، الصورة أو الفيديو، الرسائل، الدعوة الختامية، الأسئلة الشائعة، الشعارات، المقارنات والنصوص.</p>
+          <ul>
+            <li>اختر المنتجات الفعلية أو مصدرًا متاحًا مثل أحدث المنتجات أو التصنيف. التقييمات الأصلية تستخدم بيانات تقييمات سلة.</li>
+            <li>استخدم صورة منفصلة للجوال حيث يتوفر الحقل، ثم راجع الاقتصاص ونسبة الوسائط وتباين النصوص فوق الصور.</li>
+            <li>في قسم الصورة أو الفيديو، اترك رابط <bdi>MP4</bdi> فارغًا لعرض صورة ثابتة. عند إضافة فيديو تصبح الصورة غلافه. تبقى إعدادات الارتفاع والعرض والمسافات فعالة، ويختفي القسم عند مسح الصورة ورابط الفيديو معًا.</li>
+            <li>عدّل الحركة والتشغيل التلقائي حسب الحاجة. يحترم القالب تفضيل تقليل الحركة، وتبقى أدوات الفيديو الأصلية متاحة.</li>
+            <li>مجموعات الشعارات الافتراضية فارغة. أضف شعاراتك أو شعارات لديك إذن بعرضها.</li>
+          </ul>
+        </section>
+
+        <section id="ar-product" aria-labelledby="ar-product-title">
+          <h3 id="ar-product-title">صفحات المنتجات</h3>
+          <p>الأسماء والأوصاف والصور والخيارات والمتغيرات والأسعار والمخزون تأتي من إدارة المنتجات وسلة. تتحكم إعدادات القالب في طريقة عرضها.</p>
+          <p>اختر صورًا مصغرة عمودية أو أفقية للكمبيوتر، وعدّل عرض المعرض والمسافة والنسبة وملاءمة الصورة وحجم الصور المصغرة وتدوير الزوايا والتثبيت. تبقى صور الجوال المصغرة أفقية.</p>
+          <p>يتيح <strong>مظهر خيارات المنتج</strong> استخدام قوائم سلة الأصلية أو أزرار الاختيار. تستخدم الأزرار صور خيارات المنتج الأصلية عند توفرها. لا يختار القالب متغيرًا مطلوبًا تلقائيًا؛ تبقى صحة الاختيار وتحديثات السعر خاضعة لسلة.</p>
+          <p>يمكن تفعيل ملخص المنتج لإعادة استخدام ما يصل إلى ثلاثة عناصر قصيرة مكتملة من قائمة في وصفه. عطّله عندما لا تكون القائمة مناسبة. يبقى الوصف الكامل متاحًا في تفاصيل المنتج. أضف ملاحظة الشراء، وأكورديونات السياسات، وروابط صفحات متجرك عند الحاجة.</p>
+          <h4>المحتوى الممتد للمنتج</h4>
+          <p>فعّل <strong>عرض القصة الممتدة للمنتج</strong> واختر المنتجات المستهدفة. تعني قائمة الاستهداف الفارغة <strong>جميع المنتجات</strong>، لذلك اختر منتجات محددة عندما لا يناسب المحتوى كامل الكتالوج.</p>
+          <p>أضف كتل قصة بوسائط وعنوان ونص وصور للكمبيوتر والجوال أو فيديو، ووصف للصورة ونقاط منفصلة بأسطر. تتوفر أيضًا الاستخدامات والمقارنات والمزايا والأسئلة الشائعة وصور المجتمع.</p>
+          <p>استخدم <strong>ترتيب أقسام قصة المنتج</strong> لتغيير ترتيب أنواع الأقسام أو تعطيلها. يحدد رقم كتلة الوسائط سجلها، وتعرض القيمة <strong>0</strong> جميع كتل الوسائط. راجع الأرقام بعد حذف سجلات الوسائط أو تغيير ترتيبها.</p>
+          <h4>العروض والتوفر</h4>
+          <p>أضف مكوّن عروض الكميات والحزم أو توفر المنتج من محرر مكونات صفحة المنتج عند الحاجة. أنشئ الخصومات والحزم الفعلية في سلة. تغيير عنوان العرض أو شارته أو نسبته في القالب لا يغيّر سعر السلة أو الدفع.</p>
+          <p>تحدد <strong>الحد الأدنى لنسبة التوفير</strong> متى يظهر التوفير الفعلي الذي تؤكده سلة، ولا تضيف خصمًا جديدًا. راجع عروضك وخيارات المنتجات المطلوبة وحالات المخزون قبل إتاحتها للعملاء.</p>
+        </section>
+
+        <section id="ar-empty" aria-labelledby="ar-empty-title">
+          <h3 id="ar-empty-title">الحقول الفارغة وحفظ التعديلات</h3>
+          <p>يُزيل مسح النص أو الوسائط محتواهما عندما يدعم الحقل ذلك. تُخفي المجموعات الفارغة أقسامها، باستثناء قائمة استهداف قصة المنتج التي تعني جميع المنتجات عندما تكون فارغة. يبقى المفتاح المعطّل معطّلًا، وتُحفظ قيم الصفر المدعومة مثل إلغاء الحد أو تدوير زوايا الصورة.</p>
+          <p>قد تحتوي مسودتك على قيم محفوظة سابقًا. لا تستبدل تحديثات القالب هذه القيم تلقائيًا ولا تنشئ الصفحة الرئيسية بدلًا منك. احفظ إعداداتك المقصودة في المسودة واللغة الصحيحتين، ثم افتح معاينتها الحالية.</p>
+        </section>
+
+        <section id="ar-review" aria-labelledby="ar-review-title">
+          <h3 id="ar-review-title">راجع النتيجة قبل التفعيل</h3>
+          <ul>
+            <li>راجع النصوص والصور وحقوق استخدامها على الكمبيوتر والجوال.</li>
+            <li>جرّب القوائم والبحث وروابط الصفحات والأقسام.</li>
+            <li>افتح منتجاتك، واختر متغيراتها المطلوبة، ثم تحقق من السعر والإضافة إلى السلة والدخول إلى مسار الدفع.</li>
+            <li>راجع العربية واتجاهها، وكل لغة أخرى يتيحها متجرك.</li>
+            <li>تحقق من سياسات المتجر وبيانات التواصل وطرق الدفع الفعلية.</li>
+          </ul>
+          <p>المعاينة وحفظ الإعدادات لا ينشران القالب تلقائيًا. يبقى التفعيل إجراء منفصلًا داخل متجرك. اعتماد ويف في متجر القوالب يتطلب مراجعة سلة، بما فيها الأداء وإمكانية الوصول وتوافق المتصفحات، ولا يثبته نجاح البناء وحده.</p>
+        </section>
+      </article>
+
+      <article id="english" lang="en" dir="ltr" aria-labelledby="en-title">
+        <h2 id="en-title">Store setup</h2>
+        <p>This guide covers the Wave 0.2.0 development draft. Salla Theme Marketplace approval and publication are separate from customizing or previewing the theme.</p>
+        <nav class="contents" aria-label="English guide contents">
+          <p>In this guide</p>
+          <ul>
+            <li><a href="#en-start">Open the theme and set your identity</a></li>
+            <li><a href="#en-design">Design Options</a></li>
+            <li><a href="#en-links">Navigation and destinations</a></li>
+            <li><a href="#en-home">Homepage sections</a></li>
+            <li><a href="#en-product">Product pages</a></li>
+            <li><a href="#en-empty">Empty values and saving changes</a></li>
+            <li><a href="#en-review">Review before activation</a></li>
+          </ul>
+        </nav>
+
+        <section id="en-start" aria-labelledby="en-start-title">
+          <h3 id="en-start-title">Open the theme and set your store identity</h3>
+          <ol>
+            <li>In your store's theme area, open the intended Wave draft and choose <strong>Customize</strong>. Confirm the store and theme before saving.</li>
+            <li>Set your store name, logo, favicon, languages, native font, contact details, social accounts and payment methods in Salla. These store settings can also affect other themes.</li>
+            <li>In <strong>Design Options / <span lang="ar" dir="rtl">خيارات التصميم</span></strong>, choose the store logo or a text wordmark, then adjust copy, colors, typography and buttons for your brand.</li>
+            <li>Open the preview from the current editor and review desktop and mobile. Save and inspect each language your store supports.</li>
+          </ol>
+          <p>The default section photographs were created for Wave with built-in AI image generation and are hosted online. They replace the earlier reference photographs and video. Recognition logos have been removed from the defaults. Replace any image through its section settings with your own media or media you have permission to publish.</p>
+          <p>Enter accurate product information. Add customer quotations or recognition assets only when they are genuine and authorized.</p>
+        </section>
+
+        <section id="en-design" aria-labelledby="en-design-title">
+          <h3 id="en-design-title">Design Options</h3>
+          <p>Design Options control the shared storefront appearance. Homepage sections have their own settings in the native page editor.</p>
+          <table>
+            <caption>Find the right settings</caption>
+            <thead><tr><th scope="col">Group</th><th scope="col">What you can change</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Store settings</th><td>Colors, content width, gutters, spacing, typography, buttons, motion and the default shopping destination.</td></tr>
+              <tr><th scope="row">Header settings</th><td>Logo or wordmark, announcement, size, colors, sticky behavior, menu source, links, search, account and language controls.</td></tr>
+              <tr><th scope="row">Footer settings</th><td>Colors, columns, navigation groups, support and policy links, signup invitation, contact information and native payment marks.</td></tr>
+              <tr><th scope="row">Product-card settings</th><td>Spacing, borders, shadows, quick add and stock notifications.</td></tr>
+              <tr><th scope="row">Product-page settings</th><td>Gallery layout, fit and ratio, thumbnails, typography, native option appearance, highlights, purchase bars, policies and extended stories.</td></tr>
+              <tr><th scope="row">Category-page settings</th><td>Breadcrumbs. Salla supplies products and available sorting and filtering choices.</td></tr>
+              <tr><th scope="row">Homepage settings</th><td>Shared options for the corresponding native homepage components.</td></tr>
+            </tbody>
+          </table>
+          <p>Save changes and let native Salla components load in the preview before judging the result.</p>
+        </section>
+
+        <section id="en-links" aria-labelledby="en-links-title">
+          <h3 id="en-links-title">Navigation and destinations</h3>
+          <p>Choose the header's navigation source. <strong>Store navigation</strong> uses Salla menu data. <strong>Theme editor links</strong> uses editable theme link collections. Change their labels and destinations, and remove or disable groups you do not use.</p>
+          <p>Product, category and page pickers use your current store. When both a destination picker and an older URL field are available, the selected destination takes priority. Set the default shopping destination where it is used as a fallback.</p>
+          <p>Section links open on your store's homepage. Default shortcuts include <code>#collection</code>, <code>#moments</code>, <code>#why-wave</code>, <code>#responsibility</code> and <code>#community</code>. Update or remove a link if you remove its target section.</p>
+          <p>Configure the footer's Shop, Customer Care and Info groups separately. Link shipping and returns policies to real published pages. Native contact details, social accounts, tax information and payment marks come from Salla; showing them in the theme does not configure those services.</p>
+          <p>The newsletter option needs a real hosted signup-form URL. Its provider handles validation and subscriptions. Referral and mobile-app links also need real destinations.</p>
+        </section>
+
+        <section id="en-home" aria-labelledby="en-home-title">
+          <h3 id="en-home-title">Build your homepage</h3>
+          <p>Use the native page editor to add, hide, remove and reorder sections. Configure each section's text, media, links and layout in its own panel. The Wave appearance remains available with these editable sections.</p>
+          <p>Available sections include hero slides, featured products, moments, benefits, scroll benefits, editorial grids, native reviews, highlights, stories, community galleries, portraits, lifestyle images or video, messages, closing invitations, FAQs, logos, banners, comparisons and structured text.</p>
+          <ul>
+            <li>Choose actual products or an available source such as latest products or a category. Native review sections use real Salla reviews.</li>
+            <li>Use separate mobile media where offered. Check crops, media ratios, captions and readable image overlays.</li>
+            <li>In the lifestyle-image/video section, leave the MP4 URL empty to show a still image. With a video URL, the image becomes its poster. Height, width and spacing settings apply in both modes. Clearing both fields hides the section.</li>
+            <li>Adjust motion and autoplay as needed. The theme respects reduced-motion preferences; native video controls remain available.</li>
+            <li>Logo collections are empty by default. Add only your own logos or logos you have permission to display.</li>
+          </ul>
+        </section>
+
+        <section id="en-product" aria-labelledby="en-product-title">
+          <h3 id="en-product-title">Product pages</h3>
+          <p>Product names, descriptions, images, options, variants, prices and stock come from your catalog and Salla. Theme controls change their presentation.</p>
+          <p>Choose vertical or horizontal desktop thumbnails and adjust gallery width, gap, image ratio, contain/cover fit, thumbnail size, corner radius and sticky behavior. Mobile thumbnails stay horizontal.</p>
+          <p><strong>Product option appearance</strong> chooses native Salla controls or button-style choices. Image buttons use native option images when available. The theme does not choose a required variant automatically; native validation and price updates remain in use.</p>
+          <p>Product highlights can reuse up to three complete, short list items from the product description. Turn this off when that list is unsuitable. The full description remains available in Product details. Add a purchase note, policy accordions and links to your published store pages as needed.</p>
+          <h4>Extended product stories</h4>
+          <p>Enable <strong>Show extended product story</strong> and choose its target products. An empty target list means <strong>all products</strong>, so select specific products when the content is not suitable for your whole catalog.</p>
+          <p>Add media-story blocks with a title, body, desktop/mobile image or MP4 URL, image description and bullet points on separate lines. Other collections provide use cases, comparison rows, benefits, FAQs and community images.</p>
+          <p>Use <strong>Product story section order</strong> to reorder or disable section types. A media block number selects that record; <strong>0 shows all media blocks</strong>. Review the numbers after deleting or reordering media records.</p>
+          <h4>Offers and availability</h4>
+          <p>Add Quantity &amp; Bundle Offers or Product Availability through the native product-page component editor when needed. Create real promotions and priced bundles in Salla. Changing a theme title, badge or percentage does not change cart or checkout prices.</p>
+          <p><strong>Minimum savings percentage</strong> determines when verified savings appear; it does not add a discount. Review configured offers, required variants and stock states before making them available to customers.</p>
+        </section>
+
+        <section id="en-empty" aria-labelledby="en-empty-title">
+          <h3 id="en-empty-title">Empty values and saving changes</h3>
+          <p>Clearing text or media removes that content where supported. Empty collections hide their sections, except the product-story target list, where empty means all products. Disabled switches stay disabled, and supported zero values are preserved, including no border or zero image corner radius.</p>
+          <p>Your draft may already contain saved values. Theme updates do not replace them automatically or build a homepage for you. Save your intended configuration in the correct draft and language, then open its current preview.</p>
+        </section>
+
+        <section id="en-review" aria-labelledby="en-review-title">
+          <h3 id="en-review-title">Review before activation</h3>
+          <ul>
+            <li>Review your copy, media and permission to use it on desktop and mobile.</li>
+            <li>Exercise navigation, search, page links and section shortcuts.</li>
+            <li>Open products, select required variants, and check prices, add-to-cart behavior and entry into checkout.</li>
+            <li>Check Arabic and RTL, plus every other language your store supports.</li>
+            <li>Confirm real policies, contact details and payment methods.</li>
+          </ul>
+          <p>Previewing and saving settings do not publish the theme automatically. Activation is a separate action in your store. Marketplace approval requires Salla's review, including performance, accessibility and browser compatibility; a successful build alone does not establish that approval.</p>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <p>دليل نسخة ويف <bdi>0.2.0</bdi> التطويرية. آخر تحديث: 6 أكتوبر 2026.</p>
+      <p lang="en" dir="ltr">Wave 0.2.0 development-draft guide. Updated 6 October 2026.</p>
+      <p><a href="#arabic">الدليل العربي</a> <span lang="en" dir="ltr"> · <a href="#english">English guide</a></span></p>
+    </footer>
+  </div>
+</body>
+</html>
